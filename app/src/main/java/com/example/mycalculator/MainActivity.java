@@ -15,7 +15,7 @@ import javax.script.ScriptException;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0, btn_clear, btn_plus, btn_minus, btn_div,btn_decimal, btn_equal;
+    Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0, btn_clear, btn_plus, btn_minus, btn_mult, btn_div,btn_decimal, btn_equal, btn_dot;
     TextView text_display;
 
     // This is to evaluate the math expression
@@ -39,9 +39,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn9 = (Button) findViewById(R.id.btn9);
         btn0 = (Button) findViewById(R.id.btn0);
 
-        btn_plus = (Button) findViewById(R.id.btn_plus);
         btn_equal = (Button) findViewById(R.id.btn_equal);
         btn_clear = (Button) findViewById(R.id.btn_clear);
+        btn_plus = (Button) findViewById(R.id.btn_plus);
+        btn_minus = (Button) findViewById(R.id.btn_minus);
+        btn_mult = (Button) findViewById(R.id.btn_mult);
+        btn_div = (Button) findViewById(R.id.btn_div);
+        btn_dot = (Button) findViewById(R.id.btn_dot);
         text_display = (TextView) findViewById(R.id.textview_input_display);
 
         setClickListeners();
@@ -60,8 +64,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn0.setOnClickListener(this);
 
         btn_plus.setOnClickListener(this);
+        btn_minus.setOnClickListener(this);
+        btn_mult.setOnClickListener(this);
+        btn_div.setOnClickListener(this);
         btn_equal.setOnClickListener(this);
         btn_clear.setOnClickListener(this);
+        btn_dot.setOnClickListener(this);
     }
 
     @Override
@@ -79,14 +87,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn4:
                 addNumber("4");
                 break;
-            case R.id.btn1:
-                addNumber("1");
+            case R.id.btn5:
+                addNumber("5");
                 break;
-            case R.id.btn2:
-                addNumber("2");
+            case R.id.btn6:
+                addNumber("6");
+                break;
+            case R.id.btn7:
+                addNumber("7");
+                break;
+            case R.id.btn8:
+                addNumber("8");
+                break;
+            case R.id.btn9:
+                addNumber("9");
+                break;
+            case R.id.btn0:
+                addNumber("0");
+                break;
+            case R.id.btn_dot:
+                addNumber(".");
+                break;
+            case R.id.btn_clear:
+                clear_display();
                 break;
             case R.id.btn_plus:
                 addNumber("+");
+                break;
+            case R.id.btn_minus:
+                addNumber("-");
+                break;
+            case R.id.btn_mult:
+                addNumber("*");
+                break;
+            case R.id.btn_div:
+                addNumber("/");
                 break;
             case R.id.btn_equal:
                 String result = null;
@@ -97,9 +132,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     text_display.setText("Error");
                 }
                 break;
-            case R.id.btn_clear:
-                clear_display();
-                break;
+
         }
     }
 
